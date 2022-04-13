@@ -293,8 +293,8 @@ this object (you can ignore standard errors just for this once). Interpret your 
 this compare to what you estimated in (7)?
 
 ## Answer
-Using the two treatment variables, we can approximate the average treatment effect on the treated (ATT) as: 
-$$\hat{\tau}^{ATT} = \frac{\overline{Y}(R = 1) - \overline{Y}(R = 0)}{Pr(D_i = 1 | R_i = 1)}$$
+Using the two treatment variables, we can approximate the Local Average Treatment Effect (LATE) as: 
+$$\hat{\tau}^{LATE} = \frac{\overline{Y}(R = 1) - \overline{Y}(R = 0)}{Pr(D_i = 1 | R_i = 1)}$$
 
 Where the denominator of the above expression corresponds to the fraction of treatment group units receiving treatment. And the numerator is what we estimated with the models above using the `keller_trt` variable, since we found out that `killer_trt` gives us only the $R_i$ (assignment to treatment) and not $D_i$ (the actual treatment). 
 
