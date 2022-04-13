@@ -1,7 +1,6 @@
 ---
 title: "Assignment 1"
 subtitle: "Randomized Controlled Trials"
-author: "Egemen Pamukcu"
 date: "4/11/2022"
 output:
   pdf_document:
@@ -15,8 +14,8 @@ graphics: yes
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA, message = FALSE, eval = TRUE,
-                      fig.width = 6, fig.height = 3, fig.align = "center")
-
+                      fig.width = 6, fig.height = 3, fig.align = "center",
+                      tidy.opts = list(width.cutoff = 60), tidy = TRUE)
 
 library(tidyverse)
 library(stargazer)
@@ -301,10 +300,11 @@ Where the denominator of the above expression corresponds to the fraction of tre
 
 ```{r}
 numerator <- ate_payments_control_base$coefficients['keller_trt'] 
-denominator <- sum(keller_df$keller_trt_yes) / sum(keller_df$keller_trt)
+denominator <- lm(keller_trt_yes ~ keller_trt, data = keller_df)$coefficients['keller_trt']
 
 att <- numerator / denominator 
 print(round(att, 2))
 ```
 
-This approximately gives us the ATT, and since we assume there was no selection bias in treatment assignment, ATE as well. Therefore, we can conclude by saying that the average treatment effect of disconnection is a reduction in electricity payments by 8,593.11 rupees. Noncompliance appears to have led to an underestimation of the ATE by around 2,550 rupees. 
+This approximately gives us the Local Average Treatment Effect (LATE), and since we assume there was no selection bias in treatment assignment and there is treatment effect homogeneity, ATT and ATE as well. Therefore, we can conclude by saying that the average treatment effect of disconnection is a reduction in electricity payments by 8,593.11 rupees. Noncompliance appears to have led to an underestimation of the ATE by around 2,550 rupees. 
+
