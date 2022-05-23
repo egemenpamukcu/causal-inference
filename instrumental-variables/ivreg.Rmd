@@ -49,8 +49,6 @@ what is “i” here?).
 
 ## Answer
 
-MIGHT HAVE TO CHANGE THE TREATMENT
-
 To estimate the effect of average groundwater costs between April and September on total groundwater consumption, ideally, we would have an experiment where each California farmer is randomly assigned different prices for groundwater. With a sufficient sample size and elimination of selection bias through randomization, we would ensure the only systematic change between farmers are the price they pay for groundwater. We might want to have multiple price points to get a better understanding of how incremental changes in price affect consumption. We would want to have data on price paid by customers for groundwater before and after the treatment, as well as their baseline and endline groundwater consumption. In this dataset, an individual farmer would ideally be the unit of analysis and we would do the randomization on the level of this unit. After random assignment of price changes, we could estimate the following regression to estimate ATE: 
 $$Y_i = \alpha + \tau D_i + v_i $$
 Where $D_i$ is the price charged to the farmer $i$ for groundwater. Thanks to randomization, this would allow us to estimate an unbiased of $\tau^{ATE}$. 
